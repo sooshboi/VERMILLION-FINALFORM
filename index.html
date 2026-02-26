@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head> 
+  <meta charset="UTF-8" />
+  <title>Layout</title>
+  <link rel="stylesheet" href="style.css" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <header class="app-header">
+    <button id="menu-toggle" class="hamburger">☰</button>
+    <div id="dropdown-menu" class="hidden">
+      <a href="https://discord.gg/MRyvxRMXtb" target="_blank">Discord</a>
+      <a href="/community.html">Community Library</a>
+      <a href="https://vermilion.com" target="_blank">Official Site</a>   
+    </div>
+  </header>
+  <div class="app-grid">
+
+    <!-- LEFT: 3D / main area -->
+    <div class="left-panel">
+     <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" field-of-view="25deg">
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+    </button>
+    <div id="ar-prompt">
+    </div>
+</model-viewer>
+    </div>
+
+    <!-- RIGHT TOP: tabs + colors -->
+    <div class="right-top">
+      <div class="tabs">
+        <button>Vehicles</button>
+        <button>Wraps</button>
+        <button>Decals</button>
+      </div>
+
+      <div class="colors">
+        <button class="red">Red</button>
+        <button class="blue">Blue</button>
+        <button class="green">Green</button>
+        <button class="yellow">Yellow</button>
+      </div>
+    </div>
+
+    <!-- RIGHT BOTTOM: content -->
+    <div class="right-bottom">
+      <!-- Add this inside the .right-bottom div, right after the comment -->
+      <div id="vehicles-options" class="options hidden">
+        <button class="option" data-type="vehicle" data-value="car">Car</button>
+        <button class="option" data-type="vehicle" data-value="truck">Truck</button>
+        <button class="option" data-type="vehicle" data-value="bike">Bike</button>
+      </div>
+
+      <!-- Replace the wraps-options div inside .right-bottom with this -->
+      <div id="wraps-options" class="options hidden">
+        <button class="option" data-type="wrap" data-value="metallic">Metallic</button>
+        <button class="option" data-type="wrap" data-value="matte">Matte</button>
+        <button class="option" data-type="wrap" data-value="glossy">Glossy</button>
+      </div>
+
+      <div id="decals-options" class="options hidden">
+        <button class="option" data-type="decal" data-value="stripe">Stripe</button>
+        <button class="option" data-type="decal" data-value="logo">Logo</button>
+        <button class="option" data-type="decal" data-value="pattern">Pattern</button>
+      </div>
+      <!-- whatever content -->
+    </div>
+</body>
+
+</html>
